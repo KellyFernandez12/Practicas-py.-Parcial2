@@ -1,12 +1,32 @@
-
 from tkinter import * 
 from tkinter import messagebox
 
-def Ventana():
-    def revisar():
+class Ventana():
+    def _init_(self):
+      self.ven = Tk() #Libreria
+      self.ven.title('Programa 1 con Ventanas')#Titulo de la ventana
+      self.ven.geometry('400x400') #Tamaño de la ventana
+      self.inicio()
+
+    def inicio(self):
+      Label(self.ven, text='Usuario').pack(pady=10) #Texto
+
+      self.us = Entry(self.ven)
+      self.us.pack(pady=3)#Caja de texto
+
+      Label(self.ven, text='Contraseña').pack(pady=10) #Texto
+
+      self.pas = Entry(self.ven)
+      self.pas.pack(pady=3) #Caja de Texto
+  
+      boton = Button(self.ven,text='Aceptar',command=self.revisar).pack(pady=3) #Boton 
+
+      self.ven.mainloop()
+
+    def revisar(self):
        try:
-            u = str(us.get())
-            p = str(pas.get())
+            u = str(self.us.get())
+            p = str(self.pas.get())
 
             if u == 'admin' and p == '12345':
                 messagebox.showinfo('Validacion','Usuario','Contraseña correcta')
@@ -14,25 +34,5 @@ def Ventana():
                 messagebox.showerror('Error','Usuario y/o contraseña incorrecta')
        except ValueError:
             messagebox.showerror('Error','Introduce datos')
-       
-    ven = Tk() #Libreria
-    ven.title('Programa 1 con Ventanas')#Titulo de la ventana
-    ven.geometry('400x400') #Tamaño de la ventana
-
-    Label(ven, text='Usuario').pack(pady=10) #Texto
-
-    us = Entry(ven)
-    us.pack(pady=3)#Caja de texto
-
-    Label(ven, text='Contraseña').pack(pady=10) #Texto
-
-    pas = Entry(ven)
-    pas.pack(pady=3) #Caja de Texto
-
-    boton = Button(ven,text='Aceptar',command=revisar).pack(pady=3) #Boton 
-
-    ven.mainloop()
-
-
 if __name__=='main_':
     Ventana()
