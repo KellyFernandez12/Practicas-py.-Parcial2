@@ -33,7 +33,7 @@ class Principal():
             # If 5 grades have been entered, shows the list and the average
             if self.num >= 5:   
                 print("\nCalificaciones ingresadas:", self.lista)
-                print(f"El promedio es: {val.promedio(self.lista)}") 
+                print(f'El promedio es: {val.promedio(self.lista)}') 
             else:
                 # Si aún no se han ingresado 5, vuelve a pedir otra calificación
                 # If fewer than 5 have been entered, asks for another one
